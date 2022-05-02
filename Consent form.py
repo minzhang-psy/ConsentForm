@@ -1,4 +1,5 @@
 #Min & Emily
+
 '''
 Title: Demographic
 Author: Min Zhang
@@ -72,7 +73,7 @@ class TkDemo():
             If you decide to participate, you will be performing simple tasks on the computer.  They involve speaking words, pressing keys, and/or touching a
             touch-sensitive screen in response to objects or words appearing on the monitor. In addition, eye-tracking equipment may be
             used to record your eye movements while performing the task, and/or a measurement device in form of a belt around your torso
-            to assess your breathing rhythm. The procedure involves minimal risk of discomfort or stress.'''  
+            to assess your breathing rhythm. The procedure involves minimal risk of discomfort or stress.'''  )
  
 
 
@@ -230,7 +231,7 @@ class TkDemo():
                   #                   self.race.get(), self.ethnicity.get()])
                # showinfo("Thanks", "Thanks for participating in our study!")
                                                                                                                                                                                                
-TkDemo()
+#TkDemo()
 
       
 #mainloop()
