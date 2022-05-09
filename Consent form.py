@@ -1,5 +1,6 @@
 #Min & Emily
 
+
 '''
 Title: Demographic
 Author: Min Zhang
@@ -12,13 +13,15 @@ $ auto-py-to-exe
 
 
 header
-['Time', 'Study', 'ID', 'Age', 'Gender',
-                             'Race','Ethnicity']
+['Time', 'Study', 'ID', 'Age', 'Gender', 'Race','Ethnicity']
 '''
+
 application_title='Consent Form'
 main_python_file='consent.py'
 import time
 from tkinter import *
+from tkinter import ttk
+import tkinter as tk
 import csv
 import os
 from tkinter.messagebox import *
@@ -33,7 +36,7 @@ class TkDemo():
     def __init__(self, *args, **kwargs):
         #Set up window
         window = Tk()
-        window.title("Demographic")
+        window.title("Consent Form")
         window.attributes('-fullscreen', True)
         #window.configure (background = "#9B9B9B")
         #Press Escape to close the window
@@ -45,12 +48,6 @@ class TkDemo():
         height = window.winfo_screenheight()
         width = window.winfo_screenwidth()
 
-        title = Label(window, text="", font=LARG_FONT)
-        title.pack()
-
-        #This allow file choose window goes away
-        window.update()
-
         #Drop down menu for study list
 
         #self.study = StringVar()
@@ -59,28 +56,27 @@ class TkDemo():
         #Label(window, text = 'Choose a study').place(x=width/2-70 ,y=30)
         #popupMenu.place(x=width/2+50,y=30)
 
-
-
-
         # Consent Form
 
-        #text.insert(consent1, ?)
-        consent = Label(window, text = '''You are invited to participate in a research study conducted by Dr. Ulrich Mayr of
-            the Department of Psychology from the University of Oregon. This study is funded by the National Institutes
-            of Health. In our study we hope to learn about the processes involved in the regulation of thought and action.
-            Thank you for considering participating in this experiment.
+        title = Label(window, text='''You are invited to participate in a research study conducted by Dr. Ulrich Mayr of
+    the Department of Psychology from the University of Oregon. 
+    This study is funded by the National Institutes of Health. 
+    In our study we hope to learn about the processes involved in the regulation of thought and action.
+    Thank you for considering participating in this experiment.
 
-            If you decide to participate, you will be performing simple tasks on the computer.  They involve speaking words, pressing keys, and/or touching a
-            touch-sensitive screen in response to objects or words appearing on the monitor. In addition, eye-tracking equipment may be
-            used to record your eye movements while performing the task, and/or a measurement device in form of a belt around your torso
-            to assess your breathing rhythm. The procedure involves minimal risk of discomfort or stress.'''  )
+    If you decide to participate, you will be performing simple tasks on the computer.  
+    They involve speaking words, pressing keys, and/or touching a
+    touch-sensitive screen in response to objects or words appearing on the monitor. 
+    In addition, eye-tracking equipment may be
+    used to record your eye movements while performing the task,
+    and/or a measurement device in form of a belt around your torso
+    to assess your breathing rhythm. The procedure involves minimal risk of discomfort or stress.''', font=("Arial", 18))
 
+        title.pack()
 
+        #This allow file choose window goes away
+        window.update()
 
-
-
-
-        ID
         frame = Frame(window)
         frame.pack(padx=50, pady=10, anchor="w")
         labelID = Label(frame, text="ID  ")
@@ -90,8 +86,6 @@ class TkDemo():
         entryID.grid(row=1,column=1)
 
 
-
-        age
         frame_1 = Frame(window)
         frame_1.pack(fill=X, padx=50, pady=10, anchor="w")
         labelAge = Label(frame_1, text="Age")
@@ -101,24 +95,20 @@ class TkDemo():
         entryage.grid(row=1,column=1)
 
 
-        gender
         frame_2 = Frame(window)
         frame_2.pack(fill=X, padx=50, pady=10, anchor="w")
         label_2=Label(frame_2, text="Gender   ")
         label_2.grid(row = 1, column = 1)
 
         self.gender = StringVar()
-        Male
         gender_male = Radiobutton(frame_2, text = "Male     ",
                                   variable = self.gender,
                                   value='Male')
         gender_male.grid(row=2, column=2, sticky="w")
-            Female
         gender_female = Radiobutton(frame_2, text = "Female     ",
                                     variable = self.gender,
                                     value = 'Female')
         gender_female.grid(row = 2, column = 3, sticky="w")
-            Other
         label_gender = Label(frame_2, text = "Other")
         label_gender.grid(row = 2, column = 4)
         gender_other = Entry(frame_2, textvariable = self.gender)
@@ -130,7 +120,7 @@ class TkDemo():
                                     value = 'Prefer not to answer')
         gender_other.grid(row = 2, column = 6, sticky="w")
 
-        Race
+       
         frame_3 = Frame(window)
         frame_3.pack(fill=X, padx=50, pady=10, anchor="w")
         label_3=Label(frame_3, text="Race      ")
@@ -170,7 +160,7 @@ class TkDemo():
                                     value = 'Prefer not to answer')
         race8.grid(row = 9, column = 2, sticky="w")
 
-        Ethnicity
+        
         frame_4 = Frame(window)
         frame_4.pack(fill=X, padx=50, pady=10, anchor="w")
         label_4=Label(frame_4, text="Ethnicity")
@@ -193,7 +183,7 @@ class TkDemo():
         ethnicity4.grid(row = 2, column = 4, sticky="w")
 
 
-        Submit Button
+        Submit: Button
         Button(window,
                height=3, width=20,
                text='Submit',
@@ -235,4 +225,3 @@ TkDemo()
 
 
 mainloop()
-window.mainloop()
